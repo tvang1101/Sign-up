@@ -1,6 +1,29 @@
 <div class="jumbotron">
-  <form id="signUpForm" #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
-    <div class="form-group">
+  <form id="signUpForm" [formGroup]="sfForm" (ngSubmit)="savePlayer()">
+
+    Value: {{ sfForm.value | json }}
+
+    <mat-form-field>
+      <input matInput placeholder="alias..." formControlName="alias">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="character" formControlName="character">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="region..." formControlName="region">
+    </mat-form-field>
+
+    <p><small>By signing this, you have agreed to all tournament rules.</small></p>
+    <mat-form-field>
+      <input matInput placeholder="signature" formControlName="signature">
+    </mat-form-field>
+
+    <button mat-raised-button>Fight!!!</button>
+
+
+    <!-- <div class="form-group">
       <label for="nameInput">Name/Alias</label>
       <input type="text" class="form-control" id="nameInput" placeholder="Alias..." />
     </div>
@@ -17,6 +40,6 @@
       <label for="signatureInput">Signature</label>
       <input type="text" class="form-control" id="signatureInput" placeholder="Signature..." />
     </div>
-    <button (click)="savePlayer()" type="submit" class="btn btn-danger">Fight!!!</button>
+    <button (click)="savePlayer()" type="submit" class="btn btn-danger">Fight!!!</button> -->
   </form>
 </div>

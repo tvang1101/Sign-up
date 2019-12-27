@@ -13,65 +13,32 @@ export class FormBodyComponent implements OnInit {
 
   ngOnInit() {
     this.sfForm = this.fb.group({
-      name: '',
+      alias: '',
       character: '',
       region: '',
+      signature: ''
     });
-
-    this.sfForm.valueChanges.subscribe(console.log);
   }
 
-  // getStorage() {
-  //   if (localStorage.getItem('players') === null) {
-  //     let players = [];
-  //     // players.push(player);
+  savePlayer() {
+    let player = [];
+    player.push(this.sfForm.value);
 
-  //     // Re-set back to localStorage
-  //     localStorage.setItem('players', JSON.stringify(players));
-  //   } else {
-  //     let players = JSON.parse(localStorage.getItem('players'));
-  //     // players.push(player);
+    if (localStorage.getItem('players') === null) {
+      let players = [];
+      players.push(player);
 
-  //     // Re-set back to localStorage
-  //     localStorage.setItem('players', JSON.stringify(players));
-  //   }
-  // }
+      // Re-set back to localStorage
+      localStorage.setItem('players', JSON.stringify(players));
+    } else {
+      let players = JSON.parse(localStorage.getItem('players'));
+      players.push(player);
 
-  // savePlayer() {
-  //   console.log('im savgin');
-  // let playerSF = document.getElementById('nameInput').value;
-  // let characterSF = document.getElementById('characterInput').value;
-  // let regionSF = document.getElementById('regionInput').value;
+      // Re-set back to localStorage
+      localStorage.setItem('players', JSON.stringify(players));
+    }
 
-  // if (!validateForm(playerSF, characterSF)) {
-  //   return false;
-  // }
-
-  // let player = {
-  //   name: playerSF,
-  //   character: characterSF,
-  //   region: regionSF
-  // };
-
-  // // Test if player is null
-  // if (localStorage.getItem('players') === null) {
-  //   let players = [];
-  //   players.push(player);
-
-  //   // Re-set back to localStorage
-  //   localStorage.setItem('players', JSON.stringify(players));
-  // } else {
-  //   let players = JSON.parse(localStorage.getItem('players'));
-  //   players.push(player);
-
-  //   // Re-set back to localStorage
-  //   localStorage.setItem('players', JSON.stringify(players));
-  // }
-
-  // document.getElementById('signUpForm').reset();
-
-  // fetchPlayers();
-
-  // e.preventDefault();
-  // }
+    // Clears form
+    this.sfForm.reset();
+  }
 }

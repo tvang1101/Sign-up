@@ -10,11 +10,11 @@ import { PlayersComponent } from './players/players.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatChipsModule } from '@angular/material/chips';
+import {
+  MatInputModule,
+  MatSelectModule,
+  MatButtonModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,6 @@ import { MatChipsModule } from '@angular/material/chips';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatChipsModule,
     AppRoutingModule
   ],
   providers: [],
