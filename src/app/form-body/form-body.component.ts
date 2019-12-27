@@ -12,6 +12,10 @@ export class FormBodyComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.setupForm();
+  }
+
+  setupForm() {
     this.sfForm = this.fb.group({
       alias: '',
       character: '',
