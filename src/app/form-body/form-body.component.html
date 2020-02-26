@@ -1,8 +1,6 @@
 <div class="jumbotron">
   <form id="signUpForm" [formGroup]="sfForm" (ngSubmit)="savePlayer()">
 
-    Value: {{ sfForm.value | json }}
-
     <mat-form-field>
       <input matInput placeholder="alias..." formControlName="alias">
     </mat-form-field>

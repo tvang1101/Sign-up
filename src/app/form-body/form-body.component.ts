@@ -25,18 +25,15 @@ export class FormBodyComponent implements OnInit {
   }
 
   savePlayer() {
-    let player = [];
-    player.push(this.sfForm.value);
-
     if (localStorage.getItem('players') === null) {
       let players = [];
-      players.push(player);
+      players.push(this.sfForm.value);
 
       // Re-set back to localStorage
       localStorage.setItem('players', JSON.stringify(players));
     } else {
       let players = JSON.parse(localStorage.getItem('players'));
-      players.push(player);
+      players.push(this.sfForm.value);
 
       // Re-set back to localStorage
       localStorage.setItem('players', JSON.stringify(players));
