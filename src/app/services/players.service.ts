@@ -6,4 +6,26 @@ import { Injectable } from '@angular/core';
 export class PlayersService {
 
   constructor() { }
+
+  // Save players to local storage
+  save(value) {
+    if (localStorage.getItem('players') === null) {
+      let players = [];
+      players.push(value);
+
+      // Re-set back to localStorage
+      localStorage.setItem('players', JSON.stringify(players));
+    } else {
+      let players = JSON.parse(localStorage.getItem('players'));
+      players.push(value);
+
+      // Re-set back to localStorage
+      localStorage.setItem('players', JSON.stringify(players));
+    }
+  }
+
+  // Fetch players for player component
+  fetch() {
+
+  }
 }
