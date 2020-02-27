@@ -23,9 +23,4 @@ export class PlayersService {
       localStorage.setItem('players', JSON.stringify(players));
     }
   }
-
-  // Fetch players for player component
-  fetch() {
-
-  }
 }

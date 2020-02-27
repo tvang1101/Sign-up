@@ -20,20 +20,7 @@ export class PlayersComponent implements OnInit {
   }
 
   fetchPlayers() {
-    console.log('hahahahah, im here');
     this.players = JSON.parse(localStorage.getItem('players'));
-    // let playersResults = document.getElementById('playersResults');
-
-    console.log(this.players);
-
-    // Building output
-    // playersResults.innerHTML = '';
-
-    // for (let i = 0; i < players.length; i++) {
-    //   this.name = players[ i ].name;
-    //   this.character = players[ i ].character;
-    //   this.region = players[ i ].region;
-    // }
   }
 
 }
