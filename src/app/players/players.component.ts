@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { PlayersService } from '../services/players.service';
 
 @Component({
   selector: 'players',
@@ -13,14 +14,18 @@ export class PlayersComponent implements OnInit {
 
   players: any;
 
-  constructor() { }
+  constructor(private playersService: PlayersService) { }
 
   ngOnInit() {
     this.fetchPlayers();
   }
 
+  ngOnDestroy() {
+    this.playersService.player.unsubscribe();
+  }
+
   fetchPlayers() {
-    this.players = JSON.parse(localStorage.getItem('players'));
+    this.playersService.player.subscribe(data => this.players = data);
   }
 
 }
