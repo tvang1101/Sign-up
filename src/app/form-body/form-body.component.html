@@ -3,21 +3,36 @@
 
     <mat-form-field>
       <input matInput placeholder="Alias..." formControlName="alias">
+      <mat-error *ngIf="alias.invalid">
+        Please add alias...
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Character" formControlName="character">
+      <mat-error *ngIf="character.invalid">
+        Characters you choose to use...
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Region..." formControlName="region">
+      <mat-error *ngIf="region.invalid">
+        Add region...
+      </mat-error>
     </mat-form-field>
 
-    <p><small>By signing this, you have agreed to all tournament rules.</small></p>
+    <mat-checkbox formControlName="agree" color="primary">By signing this, you have agreed to all tournament rules.
+    </mat-checkbox>
+
+    <!-- <p><small>By signing this, you have agreed to all tournament rules.</small></p> -->
     <mat-form-field>
       <input matInput placeholder="Signature" formControlName="signature">
+      <mat-error *ngIf="signature.invalid">
+        Please add signature...
+      </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button>Fight!!!</button>
+    <button mat-raised-button [disabled]="sfForm.invalid">Fight!!!</button>
   </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { PlayersService } from '../services/players.service';
 
 @Component({
@@ -18,11 +18,38 @@ export class FormBodyComponent implements OnInit {
 
   setupForm() {
     this.sfForm = this.fb.group({
-      alias: '',
-      character: '',
-      region: '',
-      signature: ''
+      alias: [ '', [
+        Validators.required,
+      ] ],
+      character: [ '', [
+        Validators.required,
+      ] ],
+      region: [ '', [
+        Validators.required,
+      ] ],
+      agree: [ false, [
+        Validators.required,
+      ] ],
+      signature: [ '', [
+        Validators.required,
+      ] ]
     });
+  }
+
+  get alias() {
+    return this.sfForm.get('alias');
+  }
+
+  get character() {
+    return this.sfForm.get('character');
+  }
+
+  get region() {
+    return this.sfForm.get('region');
+  }
+
+  get signature() {
+    return this.sfForm.get('signature');
   }
 
   savePlayer() {

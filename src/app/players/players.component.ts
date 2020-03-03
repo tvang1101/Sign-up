@@ -13,19 +13,22 @@ export class PlayersComponent implements OnInit {
   region: string;
 
   players: any;
+  playServe$: any;
 
-  constructor(private playersService: PlayersService) { }
+  constructor(private playersService: PlayersService) {
+    this.playServe$ = this.playersService.player.subscribe(data => this.players = data);
+  }
 
   ngOnInit() {
     this.fetchPlayers();
   }
 
   ngOnDestroy() {
-    this.playersService.player.unsubscribe();
+    this.playServe$.unsubscribe();
   }
 
   fetchPlayers() {
-    this.playersService.player.subscribe(data => this.players = data);
+    this.playServe$;
   }
 
 }
