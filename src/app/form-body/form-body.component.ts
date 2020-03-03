@@ -12,10 +12,16 @@ export class FormBodyComponent implements OnInit {
   sfForm: FormGroup;
   constructor(private fb: FormBuilder, private playersService: PlayersService) { }
 
+  /**
+   * On initilization
+   */
   ngOnInit() {
     this.setupForm();
   }
 
+  /**
+   * Set up for reactive form
+   */
   setupForm() {
     this.sfForm = this.fb.group({
       alias: [ '', [
@@ -36,22 +42,37 @@ export class FormBodyComponent implements OnInit {
     });
   }
 
+  /**
+   * Check validation for alias
+   */
   get alias() {
     return this.sfForm.get('alias');
   }
 
+  /**
+   * Check validation for character
+   */
   get character() {
     return this.sfForm.get('character');
   }
 
+  /**
+   * Check validation for region
+   */
   get region() {
     return this.sfForm.get('region');
   }
 
+  /**
+   * Check validation for signature
+   */
   get signature() {
     return this.sfForm.get('signature');
   }
 
+  /**
+   * Save player to local at service
+   */
   savePlayer() {
     this.playersService.save(this.sfForm.value);
 

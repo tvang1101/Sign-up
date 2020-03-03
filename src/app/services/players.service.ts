@@ -30,6 +30,9 @@ export class PlayersService {
     }
   }
 
+  /**
+   * Fetch local storage for anything saved in local
+   */
   fetchMe() {
     const play = JSON.parse(localStorage.getItem('players'));
     this.player.next(play);
